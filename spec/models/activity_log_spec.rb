@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe ActivityLog, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'Validations' do
+    it { should validate_presence_of(:action) }
+    it { should validate_presence_of(:success) }
+  end
+
+  context 'Associations' do
+    it { should belong_to :actor }
+  end
 end

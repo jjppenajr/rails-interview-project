@@ -2,6 +2,8 @@ class Tenant < ActiveRecord::Base
 
   validates :name, presence: :true
 
+  has_many :activity_logs, as: :actor
+
   before_create :generate_api_key
 
   private

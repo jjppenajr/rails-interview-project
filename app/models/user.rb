@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
   #associations
   has_many :questions, inverse_of: :asker
   has_many :answers,   inverse_of: :answerer
-
+  has_many :activity_logs, as: :actor
 end

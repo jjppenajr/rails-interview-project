@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512220935) do
+ActiveRecord::Schema.define(version: 20200222184015) do
+
+  create_table "activity_logs", force: :cascade do |t|
+    t.string   "action"
+    t.integer  "actor_id"
+    t.string   "actor_type"
+    t.boolean  "success"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "activity_logs", ["action"], name: "index_activity_logs_on_action"
+  add_index "activity_logs", ["actor_id"], name: "index_activity_logs_on_actor_id"
+  add_index "activity_logs", ["actor_type"], name: "index_activity_logs_on_actor_type"
 
   create_table "answers", force: :cascade do |t|
     t.string   "body",        null: false

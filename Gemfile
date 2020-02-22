@@ -25,6 +25,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # gem for services
 gem 'simple_command', '0.0.9'
+
+# json serializer gem
+gem 'fast_jsonapi'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

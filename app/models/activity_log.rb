@@ -6,4 +6,8 @@ class ActivityLog < ActiveRecord::Base
 
   #associations
   belongs_to :actor, polymorphic: true
+
+  ACTIONS = {
+    requested_questions: "Requested questions"
+  }
 end

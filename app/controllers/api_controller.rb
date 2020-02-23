@@ -1,4 +1,4 @@
-class APIController < ActionController::API
+class APIController < ApplicationController
   before_action :authenticate_request
 
   attr_reader :current_tenant

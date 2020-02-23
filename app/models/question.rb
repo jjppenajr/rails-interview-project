@@ -1,5 +1,9 @@
 class Question < ActiveRecord::Base
 
+  scope :is_public, -> {
+    where(private: false)
+  }
+
   #validations
   validates :title, presence: true
 

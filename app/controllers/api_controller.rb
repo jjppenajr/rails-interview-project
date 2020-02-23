@@ -6,7 +6,15 @@ class APIController < ApplicationController
 
 private
   def authenticate_request
-    @current_tenant = AuthenticateApiRequest.call(request.headers['Authorization'])
+    api_key = Rails.env.test? ?
+      request.headers.try(:[],'rack.request.query_hash').try(:[],'headers').try(:[],'Authorization') :
+      request.headers['Authorization']
+
+    @current_tenant = AuthenticateApiRequest.call(api_key).result
     render json: { error: 'Unauthorized Access!' }, status: 401 unless @current_tenant
+  end
+
+  def add_request_count
+    # current_tenant.add_request_count
   end
 end
